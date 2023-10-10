@@ -33,4 +33,9 @@ export class PostsService {
                 return postsArray;
             }))
     }
+
+    deletePosts(){
+        return this.http
+            .delete('https://http-angular-5fcff-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
+    }
 }
