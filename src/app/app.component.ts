@@ -27,6 +27,8 @@ export class AppComponent implements OnInit, OnDestroy{
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
+      console.log(posts);
+      
     }, (error) => {
       this.isFetching = false;
       this.errorMsg = error.message;
@@ -46,9 +48,13 @@ export class AppComponent implements OnInit, OnDestroy{
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
+      console.log(this.loadedPosts);
+
     }, (error) => {
       this.isFetching = false;
       this.errorMsg = error.message
+      console.log(error);
+      
     })
   }
 

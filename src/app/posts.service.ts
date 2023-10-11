@@ -29,15 +29,15 @@ export class PostsService {
 
     fetchPosts(){
         let searchParams = new HttpParams();
-        searchParams = searchParams.append('print', 'pretty');
+        // searchParams = searchParams.append('print', 'pretty');
         // searchParams = searchParams.append('custom', 'key');
         return this.http
             .get<{[key:string]: Post}>(
                 'https://http-angular-5fcff-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
-                {
-                    headers: new HttpHeaders({"Custom-Header": "Hello"}),
-                    params: searchParams
-                }
+                // {
+                //     headers: new HttpHeaders({"Custom-Header": "Hello"}),
+                //     params: searchParams
+                // }
                 )
             .pipe(map(responseData=> {
                 const postsArray: Post[] = [];
@@ -47,10 +47,10 @@ export class PostsService {
                     }
                 return postsArray;
             }),
-            catchError(errorRes => {
-                //Send to analytics server
-                return throwError(() => new Error(errorRes))
-            })
+            // catchError(errorRes => {
+            //     //Send to analytics server
+            //     return throwError(() => new Error(errorRes))
+            // })
             )
     }
 
